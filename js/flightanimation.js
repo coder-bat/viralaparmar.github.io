@@ -461,14 +461,14 @@ $(function () {
         $(".tooltipCust").css("display", "block");
       }
     });
-  }, 1000);
+  }, 5000);
 
   setTimeout(function () {
     $(("path")).mouseout(function () {
       $(`.airports > path`).css("opacity", "0.7");
       $(".tooltipCust").css("display", "none");
     });
-  }, 1000);
+  }, 5000);
 
 
 });
