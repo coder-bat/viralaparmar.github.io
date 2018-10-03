@@ -1,1 +1,176 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This flight animation uses d3.js geo and SVG transition.">
+  <script src="./js/papaparse.min.js"></script>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/v4.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="https://platform-api.sharethis.com/js/sharethis.js#property=58e1a323bd89c500112d1055&product=inline-share-buttons"></script>
+  <title>Flight Data Animation</title>
+  <link rel="stylesheet" href="./css/v4blue.css">
+  <style>
+    .countries {
+  fill: #b0d0ab;
+  stroke: #6cb0e0;
+  stroke-width: 0.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.navbar {
+  min-height: unset;
+}
+.airports {
+  fill: #036;
+  stroke: #6cb0e0;
+  stroke-width: 0.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.airports {
+  z-index: 999;
+}
+.route {
+  fill: none;
+  stroke-width: 0;
+}
+.plane {
+  fill: #fff  ;
+  stroke-width: 0;
+}
+
+path {
+  pointer-events: visibleFill;
+}
+
+@media(max-width: 768px) {
+  #map {
+    margin-top: -100px;
+  }
+}
+@media(min-width: 768px) {
+  #map {
+    margin-top: -300px;
+  }
+}
+.no-display {
+  display: none !important;
+}
+
+.bigone {
+  opacity: 0.7;
+}
+
+.filterLeft {
+  position: absolute;
+  left: 50px;
+  top: 70px;
+}
+
+.filterRight {
+  position: absolute;
+  right: 50px;
+  top: 70px;
+}
+
+.filterButton {
+  margin-bottom: 5px;
+  box-shadow: none;
+  border: none;
+  padding: 5px 15px;
+  color: white;
+  border-radius: 5px;
+}
+
+.tooltipCust {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  padding: 20px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border-radius: 10px;
+  line-height: 20px;
+}
+
+.BLACK	{fill:#000000	!important}
+.RED	{fill:#FF0000}
+.MAROON	{fill:#800000}
+.YELLOW	{fill:#999900}
+.OLIVE	{fill:#808000}
+.LIME	{fill:#00FF00}
+.GREEN	{fill:#008000}
+.AQUA {fill:#00FFFF}
+.TEAL	{fill:#008080}
+.BLUE	{fill:#0000FF}
+.NAVY	{fill:#000080}
+.FUCHSIA	{fill:#FF00FF}
+.PURPLE	{fill:#800080 !important}
+.SILVER	{fill:#C0C0C0}
+.WHITE {fill:white;}
+.DARKBLUE {fill:DARKBLUE};
+.DARKVIOLET {fill:DARKVIOLET};
+.SADDLEBROWN {fill:SADDLEBROWN};
+.MAGENTA {fill:MAGENTA};
+.MIDNIGHTBLUE {fill:MIDNIGHTBLUE};
+
+th, td {padding: 5px;}
+</style>
+
+</head>
+
+<body>
+  <div class="header">
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/" title="Viral Parmar" class="navbar-brand">Viral Parmar - 12637854 : Flight data visualisation
+            with Javascript, HTML and CSS</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="content">
+    <div class="filterLeft">
+      Filter Buttons<br />
+      <button id="All-fil" class="ALL filterButton" style="color: black;">Show All</button><br />
+    </div>
+    <div class="filterRight">
+      <div id="infoText"></div>
+    </div>
+    <div class="tooltipCust"></div>
+    <div id="map"></div>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <!-- <p><a href="/archive">BLOG</a></p> -->
+        </div>
+        <div class="col-sm-6">
+          <!-- <p class="copy">&copy; 2013 - 2017 <a href="/">TNODA.COM</a></p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>(function () { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/platform.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();</script>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://d3js.org/queue.v1.min.js"></script>
+  <script src="https://d3js.org/topojson.v1.min.js"></script>
+  <script src="./js/flightanimation.js"></script>
+</body>
+
+</html>
